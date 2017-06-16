@@ -116,8 +116,10 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
     describe('New Feed Selection', function(){
+
+        //variavel que indica mudanca no conteudo
         var changed;
-        
+
         beforeEach(function(done) {
            loadFeed(0, function(){
             change = false;
@@ -125,11 +127,11 @@ $(function() {
            });
         });
 
-
         it('when a new feed is loaded by the loadFeed function that the content actually changes', function(done){
             
             expect(changed).not.toBeTruthy();
 
+            //listener que altera o valor de changed quando o conteudo muda
             $('.feed').bind("DOMSubtreeModified",function(){
                 changed = true;
             });
@@ -139,6 +141,22 @@ $(function() {
                 done();
             });
 
+        });
+    });
+
+    describe('Error handling for undefined variables and out-of-bound array access', function(){
+        it('undefined allFeeds', function(){
+            allFeeds = undefined;
+            expect(function() {
+                loadFeed(0);
+            }).toThrowError("Feeds must be defined");
+        });
+
+        it('Array out of bound allFeeds', function(){
+            allFeeds = [];
+            expect(function() {
+                loadFeed(1);
+            }).toThrowError("Array out of bound");
         });
     });
 

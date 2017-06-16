@@ -41,6 +41,15 @@ function init() {
  * which will be called after everything has run successfully.
  */
  function loadFeed(id, cb) {
+
+    if(allFeeds === undefined){
+        throw new Error('Feeds must be defined');
+    }
+
+    if(allFeeds[id] === undefined){
+        throw new Error('Array out of bound');
+    }
+
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
