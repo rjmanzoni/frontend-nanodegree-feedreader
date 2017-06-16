@@ -1,7 +1,7 @@
 ## Feed Test com Jasmine
 
 ## Instruções de uso:
-
+	
 ### Rodar o python para servir o conteudo
 
   ```bash
@@ -15,6 +15,6 @@
 Os teste estão agrupados em:
 * Validação do conteúdo das Feeds
 * Menu que contem as listas de Feeds
-* Pagina inicial que contém informação uma Feed
+* Pagina inicial que contém informação de uma Feed
 * Escolha de uma Feed para leitura na página principal
 * Tratamento de erros para conteúdo inexistente
